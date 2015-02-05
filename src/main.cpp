@@ -12,8 +12,6 @@ using glm::vec3;
 using glm::vec4;
 using glm::mat4;
 
-
-
 mat4 BuildOrbitMatrix(float local_rotation, float radius, float orbit_rotation)
 {
 	mat4 result = glm::rotate(orbit_rotation, vec3(0, 1, 0)) *
@@ -22,9 +20,6 @@ mat4 BuildOrbitMatrix(float local_rotation, float radius, float orbit_rotation)
 
 	return result;
 }
-
-
-
 
 int main()
 {
@@ -82,6 +77,7 @@ int main()
 		planet_sizes[planet_index] = (rand() % 100) / 100.0f;
 	}
 
+	mat4 test_matrix = glm::translate(vec3(10, 10, 10));
 
 	glfwSetTime(0.0);
 	while (glfwWindowShouldClose(window) == false)
