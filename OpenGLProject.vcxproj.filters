@@ -1,36 +1,59 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Cameras">
+      <UniqueIdentifier>{6e8e7e30-a8dc-4edd-ac90-70cd09d695e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application">
+      <UniqueIdentifier>{a0503148-8fa8-44cc-88e0-e6bd594e99f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IntroToOpengl">
+      <UniqueIdentifier>{f0ec5b92-8ec1-469f-adc9-3c9d77d61e6f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\gl_core_4_4.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\CameraAndProjections.h">
+      <Filter>Cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Camera.h">
+      <Filter>Cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Application.h">
+      <Filter>Application</Filter>
     </ClInclude>
     <ClInclude Include="src\Gizmos.h">
-      <Filter>Header Files</Filter>
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gl_core_4_4.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="src\IntroToOpenGL.h">
+      <Filter>IntroToOpengl</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\gl_core_4_4.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\CameraAndProjections.cpp">
+      <Filter>Cameras</Filter>
     </ClCompile>
-    <ClCompile Include="src\main.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\Application.cpp">
+      <Filter>Application</Filter>
     </ClCompile>
     <ClCompile Include="src\Gizmos.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gl_core_4_4.c">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="src\IntroToOpenGL.cpp">
+      <Filter>IntroToOpengl</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Camera.cpp">
+      <Filter>Cameras</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
