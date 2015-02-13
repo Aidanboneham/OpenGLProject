@@ -2,6 +2,7 @@
 #define _INTRO_OGL_H_
 
 #include "Application.h"
+#include "glm_header.h"
 
 
 const int PLANET_COUNT = 15;

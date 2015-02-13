@@ -39,6 +39,8 @@ void Camera::setPosition(vec3 pos)
 FlyCamera::FlyCamera(float aspect, float new_speed) : Camera(aspect)
 {
 	this->speed = new_speed;
+	yaw = 0;
+	pitch = 0;
 }
 
 void FlyCamera::update(float dt)
@@ -84,6 +86,37 @@ void FlyCamera::update(float dt)
 	x_delta *= -sensitivity;
 	y_delta *= -sensitivity;
 
+	yaw += x_delta;
+	pitch += y_delta;
+
+	if (pitch >= glm::radians(90.f))
+	{
+		pitch = glm::radians(90.f);
+	}
+	if (pitch <= glm::radians(-90.f))
+	{
+		pitch = glm::radians(-90.f);
+	}
+
+	if (glfwGetMouseButton(curr_window, 1))
+	{
+		mat4 pitch_mat = glm::rotate((pitch), vec3(1, 0, 0));
+		mat4 yaw_mat = glm::rotate((yaw), vec3(0, 1, 0));
+
+		mat4 transform = yaw_mat * pitch_mat;
+
+		transform[3] = world[3];
+		world = transform;
+		view = glm::inverse(world);
+		view_proj = proj * view;
+	}
+
+	view = glm::inverse(world);
+	updateViewProj();
+
+
+	/*
+
 	if (glfwGetMouseButton(curr_window, 1))
 	{
 		vec3 camera_right = (vec3)world[0];
@@ -96,7 +129,5 @@ void FlyCamera::update(float dt)
 		world[1] = rot * world[1];
 		world[2] = rot * world[2];
 	}
-
-	view = glm::inverse(world);
-	updateViewProj();
+*/
 }

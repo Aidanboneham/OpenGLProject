@@ -1,15 +1,15 @@
-#include "CameraAndProjections.h"
+#include "AdvancedTextures.h"
 
 int main()
 {
-	CameraAndProjections app;
+	AdvancedTextures app;
 
 	if (app.startup() == false)
 	{
 		return -1;
 	}
 
-	while (app.update() == true)
+	while ( app.update() == true )
 	{
 		app.draw();
 	}
