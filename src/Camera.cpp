@@ -6,7 +6,7 @@ Camera::Camera(float aspect)
 {
 	view = glm::lookAt(vec3(0,0,0), vec3(0,0,1), vec3(0, 1, 0));
 	world = glm::inverse(view);
-	proj = glm::perspective(glm::radians(60.0f), aspect, 0.1f, 1000.0f);
+	proj = glm::perspective(glm::radians(60.0f), aspect, 0.1f, 10000.0f);
 	view_proj = proj * view;
 }
 
@@ -38,7 +38,8 @@ void Camera::setPosition(vec3 pos)
 
 FlyCamera::FlyCamera(float aspect, float new_speed) : Camera(aspect)
 {
-	this->speed = new_speed;
+	this->m_speed = new_speed;
+	m_clicked_down = false;
 	yaw = 0;
 	pitch = 0;
 }
@@ -46,6 +47,13 @@ FlyCamera::FlyCamera(float aspect, float new_speed) : Camera(aspect)
 void FlyCamera::update(float dt)
 {
 	GLFWwindow* curr_window = glfwGetCurrentContext();
+
+	float speed = m_speed;
+
+	if (glfwGetKey(curr_window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
+	{
+		speed *= 3.0f;
+	}
 
 	if (glfwGetKey(curr_window, GLFW_KEY_W) == GLFW_PRESS)
 	{
@@ -72,43 +80,59 @@ void FlyCamera::update(float dt)
 		world[3] += world[1] * speed * dt;
 	}
 	
-	double x_delta , y_delta;
 
-	glfwGetCursorPos(curr_window, &x_delta, &y_delta);
-	glfwSetCursorPos(curr_window, 1280.f / 2.f, 720.f / 2.f);
-
-	x_delta -= (1280.f / 2.f);
-	y_delta -= (720.f / 2.f);
-
-	x_delta /= (1280.f / 2.f);
-	y_delta /= (720.f / 2.f);
-
-	x_delta *= -sensitivity;
-	y_delta *= -sensitivity;
-
-	yaw += x_delta;
-	pitch += y_delta;
-
-	if (pitch >= glm::radians(90.f))
+	if (glfwGetMouseButton(curr_window, 1) == GLFW_PRESS)
 	{
-		pitch = glm::radians(90.f);
-	}
-	if (pitch <= glm::radians(-90.f))
-	{
-		pitch = glm::radians(-90.f);
-	}
+		double x_delta, y_delta;
 
-	if (glfwGetMouseButton(curr_window, 1))
-	{
-		mat4 pitch_mat = glm::rotate((pitch), vec3(1, 0, 0));
-		mat4 yaw_mat = glm::rotate((yaw), vec3(0, 1, 0));
+		glfwGetCursorPos(curr_window, &x_delta, &y_delta);
 
-		mat4 transform = yaw_mat * pitch_mat;
+		glfwSetCursorPos(curr_window, 1280.f / 2.f, 720.f / 2.f);
 
-		transform[3] = world[3];
-		world = transform;
-		view = glm::inverse(world);
-		view_proj = proj * view;
+		double post_set_x, post_set_y;
+
+		glfwGetCursorPos(curr_window, &post_set_x, &post_set_y);
+		if (post_set_x == 1280.0f / 2.0f && post_set_y == 720.0f / 2.0f)
+		{
+			if (m_clicked_down)
+			{
+				x_delta -= (1280.f / 2.f);
+				y_delta -= (720.f / 2.f);
+
+				x_delta /= (1280.f / 2.f);
+				y_delta /= (720.f / 2.f);
+
+				x_delta *= -sensitivity;
+				y_delta *= -sensitivity;
+
+				yaw += (float)x_delta;
+				pitch += (float)y_delta;
+
+				if (pitch >= glm::radians(90.f))
+				{
+					pitch = glm::radians(90.f);
+				}
+				if (pitch <= glm::radians(-90.f))
+				{
+					pitch = glm::radians(-90.f);
+				}
+
+					mat4 pitch_mat = glm::rotate((pitch), vec3(1, 0, 0));
+					mat4 yaw_mat = glm::rotate((yaw), vec3(0, 1, 0));
+
+					mat4 transform = yaw_mat * pitch_mat;
+
+					transform[3] = world[3];
+					world = transform;
+					view = glm::inverse(world);
+					view_proj = proj * view;
+			}
+			m_clicked_down = true;
+		}
+		else
+		{
+			m_clicked_down = false;
+		}
 	}
 
 	view = glm::inverse(world);

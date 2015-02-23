@@ -31,11 +31,13 @@ public:
 	FlyCamera(float aspect, float speed);
 	virtual void update(float dt);
 
-	float speed;
+	float m_speed;
 	float sensitivity;
 
 	float yaw;
 	float pitch;
+
+	bool m_clicked_down;
 };
 
 

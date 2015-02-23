@@ -1,8 +1,8 @@
-#include "AdvancedTextures.h"
+#include "Animation.h"
 
 int main()
 {
-	AdvancedTextures app;
+	Animation app;
 
 	if (app.startup() == false)
 	{

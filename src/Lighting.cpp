@@ -16,6 +16,7 @@ bool Lighting::startup()
 
 	glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
 	glEnable(GL_DEPTH_TEST);
+	//glDisable(GL_CULL_FACE);
 	Gizmos::create();
 
 	m_camera = FlyCamera(1280.0f / 720.0f, 10.0f);
@@ -89,7 +90,7 @@ bool Lighting::update()
 
 
 	m_camera.update(dt);
-
+	
 	return true;
 }
 
@@ -127,9 +128,7 @@ void Lighting::draw()
 
 	glUniform3fv(material_color_uniform, 1, (float*)&m_material_color);
 
-
-
-
+	Gizmos::draw(m_camera.proj, m_camera.view);
 
 	for (unsigned int mesh_index = 0;
 		mesh_index < m_gl_data.size();
@@ -141,7 +140,6 @@ void Lighting::draw()
 	}
 
 	
-	Gizmos::draw(m_camera.proj, m_camera.view);
 	glfwSwapBuffers(m_window);
 	glfwPollEvents();
 }

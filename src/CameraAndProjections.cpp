@@ -15,9 +15,9 @@ bool CameraAndProjections::startup()
 	glEnable(GL_DEPTH_TEST);
 	Gizmos::create();
 
-	camera = FlyCamera(1280.0f / 720.0f, 10.0f);
-	camera.setLookAt(vec3(10, 10, 10), vec3(0), vec3(0, 1, 0));
-	camera.sensitivity = 3;
+	m_camera = FlyCamera(1280.0f / 720.0f, 10.0f);
+	m_camera.setLookAt(vec3(10, 10, 10), vec3(0), vec3(0, 1, 0));
+	m_camera.sensitivity = 3;
 
 	return true;
 }
@@ -49,7 +49,7 @@ bool CameraAndProjections::update()
 			i == 10 ? white : black);
 	}
 
-	camera.update(dt);
+	m_camera.update(dt);
 
 	return true;
 }
@@ -58,7 +58,7 @@ void CameraAndProjections::draw()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	Gizmos::draw(camera.proj, camera.view);
+	Gizmos::draw(m_camera.proj, m_camera.view);
 
 	glfwSwapBuffers(m_window);
 	glfwPollEvents();

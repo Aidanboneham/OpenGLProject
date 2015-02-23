@@ -13,7 +13,7 @@ public:
 	virtual bool update();
 	virtual void draw();
 
-	FlyCamera camera;
+	FlyCamera m_camera;
 };
 
 #endif //CAM_PROJ_H_

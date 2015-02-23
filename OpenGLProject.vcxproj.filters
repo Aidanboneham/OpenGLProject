@@ -26,6 +26,15 @@
     <Filter Include="AdvancedTexures">
       <UniqueIdentifier>{54bc9d8d-e599-465b-9d57-f22f5c991796}</UniqueIdentifier>
     </Filter>
+    <Filter Include="VisualizingQuats">
+      <UniqueIdentifier>{28b7fcc8-5757-4400-9218-9cbd66af0862}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quaternions">
+      <UniqueIdentifier>{00d70234-e036-4cbb-b727-6108dd618842}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Animation">
+      <UniqueIdentifier>{c1fa27ec-fa85-448b-bc4d-50bb426e8054}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\CameraAndProjections.h">
@@ -62,6 +71,15 @@
     <ClInclude Include="src\AdvancedTextures.h">
       <Filter>AdvancedTexures</Filter>
     </ClInclude>
+    <ClInclude Include="src\VisualizingQuats.h">
+      <Filter>VisualizingQuats</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Quaternions.h">
+      <Filter>Quaternions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Animation.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\CameraAndProjections.cpp">
@@ -97,6 +115,15 @@
     <ClCompile Include="src\AdvancedTextures.cpp">
       <Filter>AdvancedTexures</Filter>
     </ClCompile>
+    <ClCompile Include="src\VisualizingQuats.cpp">
+      <Filter>VisualizingQuats</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Quaternions.cpp">
+      <Filter>Quaternions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Animation.cpp">
+      <Filter>Animation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="data\shaders\basic_fragment.glsl">
@@ -121,6 +148,12 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="data\shaders\normal_mapped_fragment.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="data\shaders\skinned_vertex.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="data\shaders\skinned_fragment.glsl">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

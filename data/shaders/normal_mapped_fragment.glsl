@@ -14,16 +14,23 @@ uniform vec3 light_color;
 uniform float specular_power;
 
 uniform vec3 eye_pos;
+uniform vec3 camera_dir;
 
 uniform sampler2D diffuse_tex;
 uniform sampler2D normal_tex;
 uniform sampler2D specular_tex;
+uniform sampler2D displacement_tex;
 
 void main()
 {
 	mat3 TBN = mat3(normalize(frag_tangent), 
 					normalize(frag_bitangent),
 					normalize(frag_normal));
+	
+
+	float displacement = texture(displacement_tex, frag_texcoord).x;
+
+
 
 	vec3 sampled_normal = texture(normal_tex, frag_texcoord).xyz;
 	vec3 adjusted_normal = sampled_normal * 2 - 1;
@@ -47,6 +54,8 @@ void main()
 	vec3 material_specular = texture(specular_tex, frag_texcoord).xyz;
 	s = pow(s, specular_power);
 	vec3 specular = vec3(s) * light_color * material_specular;
+
+
 
 	frag_color = vec4(ambient + diffuse + specular, 1);
 }

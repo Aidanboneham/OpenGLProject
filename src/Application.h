@@ -14,7 +14,7 @@ public:
 
 	virtual bool update();
 	virtual void draw();
-
+	
 	GLFWwindow* m_window;
 };
 
