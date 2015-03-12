@@ -6,7 +6,7 @@ Camera::Camera(float aspect)
 {
 	view = glm::lookAt(vec3(0,0,0), vec3(0,0,1), vec3(0, 1, 0));
 	world = glm::inverse(view);
-	proj = glm::perspective(glm::radians(60.0f), aspect, 0.1f, 10000.0f);
+	proj = glm::perspective(glm::radians(60.0f), aspect, 0.1f, 200.0f);
 	view_proj = proj * view;
 }
 
@@ -84,6 +84,8 @@ void FlyCamera::update(float dt)
 	if (glfwGetMouseButton(curr_window, 1) == GLFW_PRESS)
 	{
 		double x_delta, y_delta;
+
+
 
 		glfwGetCursorPos(curr_window, &x_delta, &y_delta);
 

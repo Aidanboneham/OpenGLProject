@@ -23,7 +23,7 @@ bool Texturing::startup()
 
 	loadTexture("./textures/crate.png");
 	generateSphere(5.0f, 20, 80);
-	LoadShader("./shaders/textured_vertex.glsl", 
+	LoadShader("./shaders/textured_vertex.glsl", 0,
 			"./shaders/textured_fragment.glsl", &m_program_id);
 
 
@@ -177,9 +177,9 @@ OpenGLData Texturing::generateSphere(float radius, int rows, int cols)
 
 	for (int i = 0; i < cols; ++i)
 	{
-		verts[i + 1].position = vec4(sinf((i / (float)cols) * 2.f * 3.14159), 
+		verts[i + 1].position = vec4(sinf((i / (float)cols) * 2.f * 3.14159f), 
 								 	 0, 
-									 cosf((i / (float)cols) * 2.f * 3.14159), 
+									 cosf((i / (float)cols) * 2.f * 3.14159f), 
 									 1);
 
 		verts[i + 1].tex_coord = vec2(verts[i + 1].position.x + 0.5f,

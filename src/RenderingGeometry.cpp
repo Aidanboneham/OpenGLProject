@@ -14,7 +14,7 @@ bool RenderingGeometry::startup()
 		return false;
 	}
 
-	LoadShader("./shaders/basic_vertex.glsl",
+	LoadShader("./shaders/basic_vertex.glsl", 0,
 		"./shaders/basic_fragment.glsl", &m_program_id);
 	generateGrid(10, 10);
 

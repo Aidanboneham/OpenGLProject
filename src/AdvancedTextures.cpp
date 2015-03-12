@@ -69,7 +69,7 @@ bool AdvancedTextures::startup()
 	generateQuad(5.0f);
 	loadTextures();
 
-	LoadShader("./shaders/normal_mapped_vertex.glsl", 
+	LoadShader("./shaders/normal_mapped_vertex.glsl", 0,
 				"./shaders/normal_mapped_fragment.glsl", &m_program_id);
 	
 

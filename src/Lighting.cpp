@@ -23,14 +23,22 @@ bool Lighting::startup()
 	m_camera.setLookAt(vec3(10, 10, 10), vec3(0), vec3(0, 1, 0));
 	m_camera.sensitivity = 3;
 
-	LoadShader("./shaders/lighting_vertex.glsl", 
+	LoadShader("./shaders/lighting_vertex.glsl", 0,
 				"./shaders/lighting_fragment.glsl", &m_program_id);
 
 	std::vector<tinyobj::shape_t> shapes;
 	std::vector<tinyobj::material_t> materials;
 
+	double start_time = glfwGetTime();
 	std::string err = tinyobj::LoadObj(shapes, materials, 
-								"./models/stanford/bunny.obj");
+								"D:\\rungholt\\rungholt.obj");
+	double end_time = glfwGetTime();
+
+	printf("finished loading mesh. Time: %f \n", end_time - start_time);
+
+	err = tinyobj::LoadObj(shapes, materials,
+		"./models/stanford/bunny.obj");
+
 	if (err.size() != 0)
 	{
 		return false;
@@ -82,7 +90,7 @@ bool Lighting::update()
 	{
 		glDeleteProgram(m_program_id);
 
-		LoadShader("./shaders/lighting_vertex.glsl",
+		LoadShader("./shaders/lighting_vertex.glsl",0,
 			"./shaders/lighting_fragment.glsl", &m_program_id);
 	}
 
@@ -113,9 +121,6 @@ void Lighting::draw()
 		glGetUniformLocation(m_program_id, "eye_pos");
 	int specular_uniform =
 		glGetUniformLocation(m_program_id, "specular_power");
-
-
-
 	int material_color_uniform =
 		glGetUniformLocation(m_program_id, "material_color");
 	
@@ -125,7 +130,6 @@ void Lighting::draw()
 	vec3 camera_pos = m_camera.world[3].xyz;
 	glUniform3fv(eye_pos_uniform, 1, (float*)&camera_pos);
 	glUniform1f(specular_uniform, m_specular_power);
-
 	glUniform3fv(material_color_uniform, 1, (float*)&m_material_color);
 
 	Gizmos::draw(m_camera.proj, m_camera.view);

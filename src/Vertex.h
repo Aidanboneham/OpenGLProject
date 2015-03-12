@@ -23,6 +23,12 @@ struct VertexNormal
 	vec2 tex_coord;
 };
 
+struct VertexParticle
+{
+	vec4 position;
+	vec4 color;
+};
+
 struct OpenGLData
 {
 	unsigned int m_VAO;

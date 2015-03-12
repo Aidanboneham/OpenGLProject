@@ -1,8 +1,8 @@
-#include "Animation.h"
+#include "SceneManagement.h"
 
 int main()
 {
-	Animation app;
+	SceneManagement app;
 
 	if (app.startup() == false)
 	{

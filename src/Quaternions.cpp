@@ -19,7 +19,7 @@ bool Quaternions::startup()
 	m_camera.setLookAt(vec3(10, 10, 10), vec3(0), vec3(0, 1, 0));
 	m_camera.sensitivity = 3;
 
-	float PI = 3.14159;
+	float PI = 3.14159f;
 
 	m_hip_frames[0].position = vec3(0, 5, 0);
 	m_hip_frames[0].rotation = glm::quat(vec3(-1, 0, 0));
@@ -66,10 +66,23 @@ bool Quaternions::update()
 		return false;
 	}
 
+	mat4 test = glm::rotate(1.0f, vec3(1, 1, 1));
+	test[3] = vec4(2, 12, 7, 1);
+	test = glm::inverse(test);
+
+	test = glm::perspective(3.14159f / 3.0f, 1280.0f / 720.0f, 1.0f, 5000.0f);
+
 	float dt = (float)glfwGetTime();
 	glfwSetTime(0.0);
 
 	Gizmos::clear();
+
+	mat4 scale = glm::scale(vec3(2, 2, 2));
+	mat4 rot = glm::rotate(25.f, vec3(0, 1, 0));
+	mat4 trans = glm::translate(vec3(2, 2, 2));
+
+	mat4 result = trans * rot * scale;
+
 
 	m_timer += dt * 3.f;
 	float sin_wave = sinf(m_timer) * 0.5f + 0.5f;

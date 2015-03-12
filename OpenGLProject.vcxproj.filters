@@ -26,14 +26,20 @@
     <Filter Include="AdvancedTexures">
       <UniqueIdentifier>{54bc9d8d-e599-465b-9d57-f22f5c991796}</UniqueIdentifier>
     </Filter>
-    <Filter Include="VisualizingQuats">
-      <UniqueIdentifier>{28b7fcc8-5757-4400-9218-9cbd66af0862}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Quaternions">
       <UniqueIdentifier>{00d70234-e036-4cbb-b727-6108dd618842}</UniqueIdentifier>
     </Filter>
     <Filter Include="Animation">
       <UniqueIdentifier>{c1fa27ec-fa85-448b-bc4d-50bb426e8054}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Particles">
+      <UniqueIdentifier>{0fd88007-1b0c-4953-be0f-4808af49a409}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GPUParticles">
+      <UniqueIdentifier>{a6724ae3-a152-4a3c-925a-e08e38f86849}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SceneManagement">
+      <UniqueIdentifier>{d912ebbd-c126-4769-bd45-b206d8d0e4b1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -71,14 +77,26 @@
     <ClInclude Include="src\AdvancedTextures.h">
       <Filter>AdvancedTexures</Filter>
     </ClInclude>
-    <ClInclude Include="src\VisualizingQuats.h">
-      <Filter>VisualizingQuats</Filter>
-    </ClInclude>
     <ClInclude Include="src\Quaternions.h">
       <Filter>Quaternions</Filter>
     </ClInclude>
     <ClInclude Include="src\Animation.h">
       <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Particles.h">
+      <Filter>Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Emitter.h">
+      <Filter>Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GPUParticles.h">
+      <Filter>GPUParticles</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GPUEmitter.h">
+      <Filter>GPUParticles</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SceneManagement.h">
+      <Filter>SceneManagement</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -115,14 +133,26 @@
     <ClCompile Include="src\AdvancedTextures.cpp">
       <Filter>AdvancedTexures</Filter>
     </ClCompile>
-    <ClCompile Include="src\VisualizingQuats.cpp">
-      <Filter>VisualizingQuats</Filter>
-    </ClCompile>
     <ClCompile Include="src\Quaternions.cpp">
       <Filter>Quaternions</Filter>
     </ClCompile>
     <ClCompile Include="src\Animation.cpp">
       <Filter>Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Particles.cpp">
+      <Filter>Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Emitter.cpp">
+      <Filter>Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GPUParticles.cpp">
+      <Filter>GPUParticles</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GPUEmitter.cpp">
+      <Filter>GPUParticles</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SceneManagement.cpp">
+      <Filter>SceneManagement</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -154,6 +184,24 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="data\shaders\skinned_fragment.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="data\shaders\particle_vertex.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="data\shaders\particle_fragment.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="data\shaders\gpu_particle_vert.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="data\shaders\gpu_particle_geom.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="data\shaders\gpu_particle_frag.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="data\shaders\particle_update_vert.glsl">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
