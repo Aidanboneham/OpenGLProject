@@ -1,8 +1,8 @@
-#include "SceneManagement.h"
+#include "PostProcess.h"
 
 int main()
 {
-	SceneManagement app;
+	PostProcess app;
 
 	if (app.startup() == false)
 	{

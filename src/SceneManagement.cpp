@@ -248,10 +248,10 @@ bool SceneManagement::startup()
 	//loading meshes here
 	LoadMesh("./models/stanford/bunny.obj");
 
-	float extents = 1000.0f;
+	float extents = 10.f;
 
 	for (unsigned int mesh_index = 0;
-		mesh_index < 1000;
+		mesh_index < 10;
 		++mesh_index)
 	{
 		m_meshes.push_back(m_meshes[0]);

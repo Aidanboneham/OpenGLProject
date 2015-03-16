@@ -36,5 +36,5 @@ void main()
 	s = pow(s, specular_power);
 	vec3 specular = vec3(s) * light_color * material_color;
 
-	frag_color = vec4(ambient + diffuse + specular, 1);
+	frag_color = vec4(frag_normal.xyz, 1);//vec4(ambient + diffuse + specular, 1);
 }

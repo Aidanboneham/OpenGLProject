@@ -110,13 +110,13 @@ void FlyCamera::update(float dt)
 				yaw += (float)x_delta;
 				pitch += (float)y_delta;
 
-				if (pitch >= glm::radians(90.f))
+				if (pitch >= glm::radians(89.f))
 				{
-					pitch = glm::radians(90.f);
+					pitch = glm::radians(89.f);
 				}
-				if (pitch <= glm::radians(-90.f))
+				if (pitch <= glm::radians(-89.f))
 				{
-					pitch = glm::radians(-90.f);
+					pitch = glm::radians(-89.f);
 				}
 
 					mat4 pitch_mat = glm::rotate((pitch), vec3(1, 0, 0));

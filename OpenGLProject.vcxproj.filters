@@ -41,6 +41,12 @@
     <Filter Include="SceneManagement">
       <UniqueIdentifier>{d912ebbd-c126-4769-bd45-b206d8d0e4b1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="RenderTargets">
+      <UniqueIdentifier>{d54595ca-52b2-4e94-8726-55a547ac3aab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PostProcess">
+      <UniqueIdentifier>{ceab6996-a181-4e7c-9959-049ccd0971e3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\CameraAndProjections.h">
@@ -98,6 +104,12 @@
     <ClInclude Include="src\SceneManagement.h">
       <Filter>SceneManagement</Filter>
     </ClInclude>
+    <ClInclude Include="src\RenderTargets.h">
+      <Filter>RenderTargets</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PostProcess.h">
+      <Filter>PostProcess</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\CameraAndProjections.cpp">
@@ -154,6 +166,12 @@
     <ClCompile Include="src\SceneManagement.cpp">
       <Filter>SceneManagement</Filter>
     </ClCompile>
+    <ClCompile Include="src\RenderTargets.cpp">
+      <Filter>RenderTargets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PostProcess.cpp">
+      <Filter>PostProcess</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="data\shaders\basic_fragment.glsl">
@@ -202,6 +220,12 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="data\shaders\particle_update_vert.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="data\shaders\post_vertex.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="data\shaders\post_fragment.glsl">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
